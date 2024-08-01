@@ -3,7 +3,7 @@ from pathlib import Path
 from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
 
-load_dotenv(".env",override = True)
+load_dotenv(".env", override = True)
 
 class DefaultSettings(BaseSettings):
     ENV_STATE: str = "Default" # env state es el nombre global de la configuracion 
