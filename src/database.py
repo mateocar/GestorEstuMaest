@@ -6,11 +6,13 @@ from .config import get_setting
 
 settings = get_setting()
 
-engine = create_engine(settings.SQLACHEMY_DATABASE_URL)
+engine = create_engine(settings.SQLALCHEMY_DATABASE_URL)
 
 SessioLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)
 
 Base = declarative_base()
+
+Base.metadata.create_all( bind = engine)
 
 def get_sessiondb(): # creacion funcion generadora de bases de datos o sesion 
     db = SessioLocal()
