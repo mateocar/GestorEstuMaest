@@ -1,10 +1,10 @@
 from fastapi import FastAPI
-from .public.router import public
 from .exception import registrer_error_handlers
 from .database import Base, engine
 from .course import models as courses_models
 from .person import models as persons_models
-
+from .public.router import public
+from .course.router import course_router
 
 app = FastAPI(
     title="Gestor Estudiantes Maestros",
@@ -18,3 +18,4 @@ Base.metadata.create_all( bind = engine)
 registrer_error_handlers(app)
 
 app.include_router(public) 
+app.include_router(course_router)
