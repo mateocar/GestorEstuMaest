@@ -14,6 +14,7 @@ class OnlyArea(BaseModel):
         orm_mode: True
         
 
-    
+class Response(BaseModel):
+    message: str 
 
     

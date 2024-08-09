@@ -26,3 +26,12 @@ def create_area(area: schema.OnlyArea, db: Session = Depends(get_sessiondb)):
     print(area.area_name)
     db_area = crud.create_area(area_name = area.area_name, db = db)
     return db_area
+
+@course_router.put("/area/{id}", response_model = schema.Area)
+def update_area(id:int, area_name: str, db: Session = Depends(get_sessiondb)):
+    updated_area = crud.update_area(id = id, area_name = area_name, db = db)
+    return updated_area 
+
+@course_router.delete("/area/{id}", response_model = schema.Response)
+def delete_area(id: int, db: Session = Depends(get_sessiondb)):
+    return crud.remove_area(id = id, db = db)

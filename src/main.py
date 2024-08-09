@@ -4,7 +4,7 @@ from .database import Base, engine
 from .course import models as courses_models
 from .person import models as persons_models
 from .public.router import public
-from .course.router import course_router
+from .course.routers import course_router
 
 app = FastAPI(
     title="Gestor Estudiantes Maestros",
