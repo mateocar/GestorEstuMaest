@@ -8,13 +8,14 @@ settings = get_setting()
 
 engine = create_engine(settings.SQLALCHEMY_DATABASE_URL)
 
-SessioLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)
+SessioLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
-Base.metadata.create_all( bind = engine)
+Base.metadata.create_all(bind=engine)
 
-def get_sessiondb(): # creacion funcion generadora de bases de datos o sesion 
+
+def get_sessiondb():  # creacion funcion generadora de bases de datos o sesion
     db = SessioLocal()
     try:
         yield db
