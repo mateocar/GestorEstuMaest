@@ -1,6 +1,8 @@
 """el esquema me permite adaptar como devolver el dato"""
 
 from pydantic import BaseModel
+from typing import List
+from ..person.schemas import Student, Teacher
 
 
 class Area(BaseModel):
@@ -20,3 +22,11 @@ class OnlyArea(BaseModel):
 
 class Response(BaseModel):
     message: str
+
+
+class Course(BaseModel):
+    id: int
+    course_name: str
+    area:  Area
+    student: List[Student] = []
+    teacher: Teacher
